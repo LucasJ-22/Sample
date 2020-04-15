@@ -3,7 +3,7 @@ require 'test_helper'
 class UsersLoginTest < ActionDispatch::IntegrationTest
 
   def setup
-    @user = users(:Aroudo)
+    @user = users(:aroudo)
   end
 
   test "login with valid email/invalid password" do

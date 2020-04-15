@@ -217,20 +217,38 @@ footer
         }
     }
 }
-@media (max-width: 800px) {
-    footer {
-        small {
+@media (max-width: 800px) 
+{
+    footer 
+    {
+        small 
+        {
             display: block;
             float: none;
             margin-bottom: 1em;
         }
-        ul {
+        ul 
+        {
             float: none;
             padding: 0;
-            li {
+            li 
+            {
                 float: none;
                 margin-left: 0;
             }
         }
+    }
+}
+
+/* Users index */
+.users 
+{
+    list-style: none;
+    margin: 0;
+    li 
+    {
+        overflow: auto;
+        padding: 10px 0;
+        border-bottom: 1px solid $light-gray;
     }
 }
