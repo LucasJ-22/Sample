@@ -4,6 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 
+#DB  
+gem 'pg', '1.1.4'
 # Make feke users
 gem 'faker', '2.1.2'
 # Paginate users && paginate with bootstrap
@@ -32,9 +34,7 @@ gem 'bootstrap-sass', '3.4.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-group :development, :test do
-  #DB  
-  gem 'pg', '1.1.4'
+group :development, :test do  
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
