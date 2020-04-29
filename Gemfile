@@ -5,8 +5,6 @@ ruby '2.6.3'
 
 
 #Sandgrid
-gem 'actiontext',  '6.0.2.2'
-#gem 'actionmailbox', '6.0.2.2'
 gem 'sendgrid-ruby'
 #DB  
 gem 'pg', '1.1.4'
