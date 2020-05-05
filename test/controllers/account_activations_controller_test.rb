@@ -1,8 +1,8 @@
 require 'sendgrid-ruby'
-include SendGrid
 
-class AccountActivationsControllerTest < ActionDispatch::IntegrationTest  
-
+class AccountActivationsControllerTest < ActionDispatch::IntegrationTest 
+  include SendGrid
+  
   from = Email.new(email: 'test@example.com')
   to = Email.new(email: 'test@example.com')
   subject = 'Sending with SendGrid is Fun'

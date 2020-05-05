@@ -5,7 +5,7 @@ ruby '2.6.3'
 
 
 #Sandgrid
-#gem 'sendgrid-ruby'
+gem 'sendgrid-ruby'
 #DB  
 gem 'pg', '1.1.4'
 # Make feke users
