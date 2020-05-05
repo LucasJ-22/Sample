@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
     attr_accessor :remember_token, :activation_token, :reset_token
     before_save   { email.downcase! }
     before_create :create_activation_digest
@@ -9,6 +10,8 @@ class User < ApplicationRecord
                         uniqueness: true
     has_secure_password
     validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+
+
 
     def User.digest(string)
         cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -38,8 +41,8 @@ class User < ApplicationRecord
     # Activates an account.
     def activate
         update_columns(activated: true, activated_at: Time.zone.now)
-        update_attribute(:activated,true)
-        update_attribute(:activated_at, Time.zone.now)
+        #update_attribute(:activated,true)
+        #update_attribute(:activated_at, Time.zone.now)
     end
 
     # Sends activation email.
@@ -52,6 +55,7 @@ class User < ApplicationRecord
         #update_columns(reset_digest: :reset_token, reset_sent_at: Time.zone.now)
         update_attribute(:reset_digest, User.digest(reset_token))
         update_attribute(:reset_sent_at, Time.zone.now)
+
     end
 
     def send_password_reset_email
@@ -59,18 +63,18 @@ class User < ApplicationRecord
     end
 
     def password_reset_expired?
-        reset_sent_at < 2.hours.ago
+        reset_set_at < 2.hours.ago
     end
 
     private
 
-        def downcase_email
-            self.email = email.downcase
-        end
+    def downcase_email
+        self.email = email.downcase
+    end
 
-        def create_activation_digest
-            self.activation_token = User.new_token
-            self.activation_digest = User.digest(activation_token)
-        end
+    def create_activation_digest
+        self.activation_token  = User.new_token
+        self.activation_digest = User.digest(activation_token)
+    end
 end
  
