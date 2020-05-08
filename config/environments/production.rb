@@ -35,8 +35,8 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
-  # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
+  # Store uploaded files on amazon
+  config.active_storage.service = :amazon
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
@@ -93,24 +93,7 @@ Rails.application.configure do
     :password       => ENV['SENDGRID_PASSWORD'], 
     :domain         => 'heroku.com',
     :enable_starttls_auto => true
-  }
-
-  #config.action_mailer.raise_delivery_errors = true
-  #config.action_mailer.delivery_method = :smtp
-  #host = 'https://sam-ple.herokuapp.com'
-  #config.action_mailer.default_url_options = { host: host }
-
-  #ActionMailer::Base.smtp_settings = 
-  #{
-    #:address        => 'smtp.gamil.net',
-    #:port           => '587',
-    #:user_name      => ENV['GMAIL_USERNAME'], 
-    #:password       => ENV['GMAIL_PASSWORD'],
-    #:authentication => :plain,
-    #:enable_starttls_auto => true
-  #}
-
-  
+  }  
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
