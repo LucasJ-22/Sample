@@ -8,6 +8,9 @@ ruby '2.6.3'
 gem 'sendgrid-ruby'
 #DB  
 gem 'pg', '1.1.4'
+# image rendering
+gem 'image_processing', '1.9.3'
+gem 'mini_magick', '4.9.5'
 # Make feke users
 gem 'faker', '2.1.2'
 # Paginate users && paginate with bootstrap
@@ -17,6 +20,8 @@ gem 'bootstrap-will_paginate', '1.0.0'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 # Use Active Model has_secure_password
 gem 'bcrypt', '3.1.13'
+# Active storage validations
+gem 'active_storage_validations', '0.8.2'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -62,6 +67,7 @@ group :test do
 end
 
 group :production do
+  gem 'aws-sdk-s3', '1.46.0', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
